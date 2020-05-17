@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Playfair Display', serif;  
+    /* font-family: 'Roboto', sans-serif;   */
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    color: #fff;
+    font-size: 35px;
+    font-weight: lighter;
+}
+
+h3 {
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+    font-size: 30px;
+
+}
+
+.ct-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.ct-align-center {
+    align-items: center;
+}
+
+/* Header */
+
+header {
+    position: relative;
+}
+
+header nav {
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    background: rgb(0, 0, 0, .5);
+    z-index: 999;
+}
+
+header nav ul.ct-navigation {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+header nav ul.ct-navigation li a {
+    padding: 0 24px;
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+header nav ul.ct-navigation li:last-child a {
+    padding-right: 0;
+}
+
+header nav ul.ct-navigation li a:after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 0;
+    background-color: #fff;
+    opacity: 0;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+header nav ul.ct-navigation li a:hover:after {
+    width: 100%;
+    opacity: 1;
+}   
+
+.ct-header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0, .5)
+}
+
+.ct-main-banner {
+    display: block;
+    width: 100%;
+}
+
+.ct-arrow {
+    display: inline-block;
+    border: solid 3px white;
+    padding: 20px;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    cursor: pointer;
+    -webkit-transition: opacity .3s ease;
+    transition: opacity .3s ease;
+}
+
+.ct-header-text .ct-arrow:hover {
+    opacity: .7;
+}
+
+/* Logo */
+
+.ct-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 20px;
+    border: solid 2px #fff;
+    width: 100px;
+    height: 100px;    
+    border-radius: 100%;
+}
+
+/* Sections */
+
+.ct-section {
+    padding: 85px 0;
+}
+
+/* About us */
+
+#ct-about .ct-column {
+    width: 48%;
+    margin-top: 25px;
+    text-align: center;
+}
+
+/* Animations */
+
+.ct-pulsate {
+    animation: pulsate 3s ease-in-out;
+    animation-iteration-count: infinite;
+    opacity: .3;
+}
+
+@keyframes pulsate {
+    0% {
+        opacity: .3;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: .3;
+    }
+}
