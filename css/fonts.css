@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../img/fonts/icomoon.eot?tv5whm');
+  src:  url('../img/fonts/icomoon.eot?tv5whm#iefix') format('embedded-opentype'),
+    url('../img/fonts/icomoon.ttf?tv5whm') format('truetype'),
+    url('../img/fonts/icomoon.woff?tv5whm') format('woff'),
+    url('../img/fonts/icomoon.svg?tv5whm#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  /* speak: none; */
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-library:before {
+  content: "\e921";
+}
+.icon-credit-card:before {
+  content: "\e93f";
+}
+.icon-address-book:before {
+  content: "\e944";
+}
+.icon-compass2:before {
+  content: "\e94a";
+}
+.icon-bubbles2:before {
+  content: "\e96d";
+}
+.icon-airplane:before {
+  content: "\e9af";
+}
+.icon-facebook2:before {
+  content: "\ea91";
+}
+.icon-instagram:before {
+  content: "\ea92";
+}
+.icon-twitter:before {
+  content: "\ea96";
+}

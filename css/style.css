@@ -1,3 +1,5 @@
+@import './fonts.css';
+
 body {
     margin: 0;
     padding: 0;
@@ -7,6 +9,11 @@ body {
 
 a {
     text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    color: rgb(100, 76, 57);
 }
 
 h1 {
@@ -103,7 +110,7 @@ header nav ul.ct-navigation li a:hover:after {
     width: 100%;
 }
 
-.ct-arrow {
+.ct-header-text .ct-arrow {
     display: inline-block;
     border: solid 3px white;
     padding: 20px;
@@ -141,10 +148,256 @@ header nav ul.ct-navigation li a:hover:after {
 
 /* About us */
 
+#ct-about i {
+    font-size: 60px;
+    color: rgb(100, 76, 57);
+}
+
 #ct-about .ct-column {
     width: 48%;
     margin-top: 25px;
     text-align: center;
+}
+
+/* Gallery */
+
+#ct-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#ct-gallery li {   
+    width: 33%;   
+    object-fit: cover; 
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#ct-gallery li img {
+    display: block;
+    width: 100%;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+#ct-gallery li:hover img {
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
+}
+
+#ct-gallery li::after {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .4);
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+#ct-gallery li:hover::after {
+    /* width: 0; */
+    height: 0;
+}
+
+/* Testimonials */
+
+#ct-testimonials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ct-testimonials {
+    max-width: 500px;
+    position: relative;
+}
+
+.ct-testimonials ul {
+    display: flex;
+    padding: 0;
+    list-style-type: none;
+    overflow: hidden;
+}
+
+.ct-testimonials ul li {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ct-testimonials ul li .ct-user-data img {
+    border-radius: 100%;
+}
+
+.ct-testimonials ul li .ct-user-name {
+    display: block;
+    margin: 15px 0;  
+    font-size: 26px;    
+}
+
+.ct-testimonials ul li > p {
+    font-style: italic;
+    font-size: 22px;
+    color: rgb(100, 76, 57);
+    text-align: center;
+}
+
+.ct-testimonials .ct-arrow {
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    border: solid 3px #eee;
+    padding: 20px;
+    border-width: 0 3px 3px 0;    
+    cursor: pointer;
+    -webkit-transition: border-color .3s ease;
+    transition: border-color .3s ease;
+}
+
+.ct-testimonials .ct-arrow:hover {
+    border-color: rgb(100, 76, 57);
+}
+
+.ct-testimonials .ct-arrow.ct-arrow-left {
+    right: 120%;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+
+.ct-testimonials .ct-arrow.ct-arrow-right {
+    left: 120%;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+/* Contact */
+
+#ct-contact {
+    background: rgb(194, 189, 185);
+}
+
+#ct-contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#ct-contact form input:not([type="submit"]),
+#ct-contact form textarea {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: solid 1px rgb(100, 76, 57);
+    font-size: 16px;
+    box-sizing: border-box;      
+}
+
+#ct-contact form textarea {
+    height: 160px;
+    resize: none;
+}
+
+#ct-contact form *::-webkit-input-placeholder {
+    color: rgb(100, 76, 57);
+    font-style: italic;
+    font-weight: bold;
+}
+
+#ct-contact form *::-moz-placeholder {
+    color: rgb(100, 76, 57);
+    font-style: italic;
+    font-weight: bold;
+}
+
+#ct-contact form *::-ms-input-placeholder {
+    color: rgb(100, 76, 57);
+    font-style: italic;
+    font-weight: bold;
+}
+
+#ct-contact form *::-moz-input-placeholder {
+    color: rgb(100, 76, 57);
+    font-style: italic;
+    font-weight: bold;
+}
+
+#ct-contact input[type="submit"] {
+    border: none;
+    padding: 15px 30px;
+    color: #fff;
+    background-color: rgb(100, 76, 57);
+    font-size: 16px;
+    box-shadow: inset 0 -3px 0 0 rgb(131, 82, 19);
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+#ct-contact input[type="submit"]:hover {
+    color: rgb(194, 189, 185);
+    box-shadow: inset 0 -3px 00 rgb(58, 36, 8)
+}
+
+/* Footer */
+
+footer {
+    background-color: rgb(131, 123, 113);
+    padding: 12px 0;
+}
+
+footer .ct-logo {
+    width: 60px;
+    height: 60px;
+    font-size: 12px;
+}
+
+footer .ct-social-icons {
+    display: flex;
+    list-style-type: none;    
+}
+
+footer .ct-social-icons li {
+    margin-left: 25px;
+}
+
+footer .ct-container p {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #FFF;
+    font-weight: lighter;
+    -webkit-transition: opacity .3s ease;
+    transition: opacity .3s ease;
+}
+
+footer .ct-container p:hover {
+    opacity: 0.7;
+}
+
+footer .ct-social-icons li a {
+    display: flex;
+    color: #fff;
+    font-size: 26px;
+    -webkit-transition: opacity .3s ease;
+    transition: opacity .3s ease;
+}
+
+footer .ct-social-icons li a:hover {
+    opacity: 0.7;
 }
 
 /* Animations */
