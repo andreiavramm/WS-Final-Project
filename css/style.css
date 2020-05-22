@@ -51,11 +51,18 @@ header {
 }
 
 header nav {
+    margin: 10px 0;
     padding: 10px 0;
     position: fixed;
-    width: 100%;
-    background: rgb(0, 0, 0, .5);
+    width: 100%;    
     z-index: 999;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+header nav.ct-nav-scroll {
+    margin: 0;
+    background: rgb(0, 0, 0, .5);
 }
 
 header nav ul.ct-navigation {

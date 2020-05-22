@@ -15,13 +15,13 @@
         <!-- Navigation -->
         <nav>
             <div class="ct-container ct-align-center">
-                <a class="ct-logo" href="#">Go Travel!</a>
+                <a class="ct-logo ct-section-link" href="#">Go Travel!</a>
                 <ul class="ct-navigation">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#ct-about">About Us</a></li>
-                    <li><a href="#ct-gallery">Gallery</a></li>
-                    <li><a href="#ct-testimonials">Testimonials</a></li>
-                    <li><a href="#ct-contact">Contact</a></li>
+                    <li><a class="ct-section-link" href="#">Home</a></li>
+                    <li><a class="ct-section-link" href="#ct-about">About Us</a></li>
+                    <li><a class="ct-section-link" href="#ct-gallery">Gallery</a></li>
+                    <li><a class="ct-section-link" href="#ct-testimonials">Testimonials</a></li>
+                    <li><a class="ct-section-link" href="#ct-contact">Contact</a></li>
                     <li><a href="#ct-search">Search</a></li>
                 </ul>
             </div>
@@ -31,7 +31,7 @@
         <section class="ct-header">
             <div class="ct-header-text">
                 <h1 class="ct-pulsate">Plan your travels ahead</h1>
-                <i class="ct-arrow"></i>
+                <i class="ct-arrow ct-section-link" date-href="ct-about"></i>
             </div>
             <img class="ct-main-banner" src="./img/main-banner.jpg" alt="travel plan photo">
         </section>
@@ -72,13 +72,10 @@
         <ul id="ct-gallery">
             <li><img src="./img/gallery/bangladesh.jpg" alt="house with view of the mountains"></li>
             <li><img src="./img/gallery/belgium.jpg" alt="houses on the lake"></li>
-            <li><img src="./img/gallery/cameroon.jpg" alt="sun coming through clouds"></li>
             <li><img src="./img/gallery/comoros.jpg" alt="ducks in a shipyard"></li>
             <li><img src="./img/gallery/croatia.jpg" alt="castle on a rock"></li>
             <li><img src="./img/gallery/cyprus.jpg" alt="people at the beach"></li>
-            <li><img src="./img/gallery/faroe-islands.jpg" alt="mountains and the sea"></li>
             <li><img src="./img/gallery/luxembourg.jpg" alt="castle in winter"></li>
-            <li><img src="./img/gallery/marshall-islands.jpg" alt="beach view with two rocks"></li>
             <li><img src="./img/gallery/micronesia .jpg" alt="palmtrees and clouds"></li>
             <li><img src="./img/gallery/montenegro.jpg" alt="mountains and a river"></li>
             <li><img src="./img/gallery/morocco.jpg" alt="white buildings on a beach"></li>
@@ -88,11 +85,13 @@
             <li><img src="./img/gallery/russian-federation.jpg" alt="city in autumn"></li>
             <li><img src="./img/gallery/suriname.jpg" alt="sunset at wild beach"></li>
             <li><img src="./img/gallery/western-sahara.jpg" alt="encampment in the desert night"></li>
+            <li><img src="./img/gallery/cameroon.jpg" alt="sun coming through clouds"></li>
+            <li><img src="./img/gallery/faroe-islands.jpg" alt="mountains and the sea"></li>
+            <li><img src="./img/gallery/marshall-islands.jpg" alt="beach view with two rocks"></li>
         </ul>
 
         <section id="ct-testimonials" class="ct-section">
             <h3>Testimonials</h3>
-
             <div class="ct-testimonials">
                 <ul>
                     <li>
@@ -125,10 +124,8 @@
                             leader, along with the stunning beauty of the islands...it was the trip of our lives." </p>
                     </li>
                 </ul>
-
                 <i id="ct-testimonials-previous" class="ct-arrow ct-arrow-left"></i>
                 <i id="ct-testimonials-next" class="ct-arrow ct-arrow-right"></i>
-
             </div>
         </section>
 
@@ -140,9 +137,7 @@
                 <input type="text" name="surname" placeholder="Surname">
                 <input type="email" name="email" placeholder="Email">
                 <textarea placeholder="Your Message"></textarea>
-
                 <input type="submit" value="Submit">
-
             </form>
         </section>
 
@@ -150,15 +145,16 @@
 
     <footer>
         <div class="ct-container ct-align-center">
-            <a class="ct-logo" href="#">Go Travel!</a>
+            <a class="ct-logo ct-section-link" href="#">Go Travel!</a>
             <p>&copy; 2020 | Andrei Avram</p>
-            <ul class="ct-social-icons">                
+            <ul class="ct-social-icons">
                 <li><a href="#"><i class="icon-facebook2"></i></a></li>
                 <li><a href="#"><i class="icon-instagram"></i></a></li>
-                <li><a href="#"><i class="icon-twitter"></i></a></li>                
+                <li><a href="#"><i class="icon-twitter"></i></a></li>
             </ul>
-        </div> 
+        </div>
     </footer>
+    <script src="./js/script.js" type="text/javascript"></script>
 </body>
 
 </html>
