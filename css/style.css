@@ -182,6 +182,8 @@ header nav ul.ct-navigation li a:hover:after {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    border: solid 1px #fff;
+    border-radius: 2px;
 }
 
 #ct-gallery li img {
@@ -212,6 +214,41 @@ header nav ul.ct-navigation li a:hover:after {
 #ct-gallery li:hover::after {
     /* width: 0; */
     height: 0;
+}
+
+.ct-backdrop {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .9);
+    z-index: 9999;
+}
+
+.ct-backdrop img {
+    max-width: 80%;
+    max-height: 80%;
+    border: solid 5px rgb(58, 36, 8);
+    border-radius: 5px;
+}
+
+span.ct-backdrop-close {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    top: 20px;
+    right: 20px;
+    height: 30px;
+    width: 30px;
+    color: #fff;
+    border: solid 2px #fff;
+    border-radius: 100%;
+    cursor: pointer;
 }
 
 /* Testimonials */
