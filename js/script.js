@@ -11,6 +11,30 @@
         }
     }
 
+    const transformResponsiveMenu = () => {
+        const pageWidth = window.innerWidth;
+        const navContainer = document.querySelector('header nav .ct-container');
+        const navigation = document.querySelector('header nav .ct-navigation');
+        const mobileNavigation = document.querySelector('body > .ct-navigation');
+
+        if (pageWidth <= mobileWidth && navigation) {
+            document.body.insertAdjacentElement('afterbegin', navigation);
+        } else if (pageWidth > mobileWidth && mobileNavigation) {
+            navContainer.insertAdjacentElement('beforeend', mobileNavigation);
+        }
+
+    }
+
+    const mobileMenuOpen = () => {
+        const menuOpen = document.querySelector('.ct-nav-toggle');
+
+        menuOpen.addEventListener('click', () => {
+            const mobileNavigation = document.querySelector('body > .ct-navigation');
+            mobileNavigation.classList.toggle('ct-navigation-opened')
+    
+        })
+    }
+
     const onNavItemClick = () => {
         const navItemList = document.querySelectorAll('.ct-section-link');
         const navItems = [...navItemList];
@@ -94,9 +118,15 @@
         navBackgroundOnScroll();
     })
 
+    window.addEventListener('resize', () => {
+            transformResponsiveMenu();
+    })
+
     onNavItemClick();
     onTestimonialChange();
-    onGalleryImageClick();    
+    onGalleryImageClick();  
+    transformResponsiveMenu();  
+    mobileMenuOpen();
 
 })();
 
