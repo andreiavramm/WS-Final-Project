@@ -31,7 +31,7 @@
         menuOpen.addEventListener('click', () => {
             const mobileNavigation = document.querySelector('body > .ct-navigation');
             mobileNavigation.classList.toggle('ct-navigation-opened')
-    
+
         })
     }
 
@@ -76,7 +76,7 @@
         const testimonials = document.querySelector('.ct-testimonials ul');
 
         document.addEventListener('click', () => {
-            if(event.target === prevArrow) {
+            if (event.target === prevArrow) {
                 lastChild = testimonials.lastElementChild;
                 testimonials.insertAdjacentElement('afterbegin', lastChild);
             } else if (event.target === nextArrow) {
@@ -119,14 +119,139 @@
     })
 
     window.addEventListener('resize', () => {
-            transformResponsiveMenu();
+        transformResponsiveMenu();
     })
 
     onNavItemClick();
     onTestimonialChange();
-    onGalleryImageClick();  
-    transformResponsiveMenu();  
+    onGalleryImageClick();
+    transformResponsiveMenu();
     mobileMenuOpen();
 
 })();
 
+const fetchData = async () => {
+    const response = await fetch('http://restcountries.eu/rest/v2/name/ro', {
+        method: 'GET'
+    });
+    return await response.json();
+};
+const countriesPromise = fetchData();
+let filteredResult;
+
+const numberWithSpaces = (number) => {
+    return Intl.NumberFormat('en-US', { notation: 'compact', compactDisplay: 'short' }).format(number);
+};
+
+const createListeners = () => {
+    const acc = document.getElementsByClassName('accordion');
+    for (let i = 0; i < acc.length; i++) {
+        acc[i].addEventListener('click', function () {
+            this.classList.toggle('active');
+            const panel = this.nextElementSibling;
+            if (panel.style.display === 'block') {
+                panel.style.display = 'none';
+            } else {
+                panel.style.display = 'block';
+            }
+        });
+    }
+};
+
+const searchBy = async (event) => {
+    const countries = await countriesPromise;
+    const value = event.target.value;
+    filteredResult = filterResult(countries, value);
+}
+
+const searchResult = () => {
+    if (filteredResult && filteredResult.length) {
+        generateResults(filteredResult);
+    }
+}
+
+const generateView = async () => {
+    const header = document.querySelector('.ct-header-text');
+    const container = document.createElement('div');
+    container.setAttribute('class', 'panelsContainer');
+    container.setAttribute('id', 'container');
+
+    container.innerHTML += `
+    <div class="searchContainer">
+      <input type="text" class="search" placeholder="Learn more about your destination" onkeydown="searchBy(event)"/>
+      <button type="button" onclick="searchResult()">Search</button>
+    </div>`;
+
+    header.appendChild(container);
+};
+
+const generateResults = (countries) => {
+    document.querySelectorAll('.item').forEach(e => e.remove());
+    const header = document.querySelector('.ct-header-text');
+    const container = document.getElementById('container');
+
+    countries.forEach((country) => {
+        const { name,
+            capital,
+            alpha2Code,
+            population,
+            region,
+            subregion,
+            borders,
+            flag,
+            languages,
+            translations,
+            latlng,
+            timezones,
+            regionalBlocs,
+            topLevelDomain,
+            currencies
+        } = country;
+        container.innerHTML += `
+      <div class="item">
+      <button id=${name} class="accordion">
+        <img class="countryFlag" src="${flag}" />
+        ${name}
+        - <b>Capital:</b> ${capital}
+      </button>
+      <div class="panel">
+        <div><b>Location: </b> <a href="https://www.google.com/maps/dir/?api=1&origin=Iasi&destination=${latlng[0]},${latlng[1]}" target="_blank">
+          <img src="./img/fonts/signs.svg" class="icon"/>
+        </a>
+        <div><b>Population: </b> ${numberWithSpaces(population)}</div>
+        <div><b>Region: </b>${region}</div>
+        <div><b>Subregion: </b>${subregion}</div>
+        ${ borders.length ? `<div><b>Borders: </b> ${borders.join(', ')} </div>` : ''}
+        <div><b>Region: </b>${region} </div>
+        <div><b>Timezone: </b>${timezones.join(', ')} </div>
+        <div><b>Languages: </b>${languages.map(l => l.name).join(', ')} </div>
+        <div><b>Top level domanin: </b>${topLevelDomain[0]} </div>
+        <div><b>Currencies: </b>${currencies.map((c) => c.name ? `${c.code} - ${c.name}` : '').filter(d => d).join(', ')} </div>
+        <div><b>GINI index (World Bank estimate): </b>
+        <a href="https://data.worldbank.org/indicator/SI.POV.GINI?locations=${alpha2Code}&view=map" target="_blank">
+          <img class="icon" src="./img/fonts/bank.png" />
+        </a></div>
+        ${ regionalBlocs.length ? `<div><b>Regional blocks: </b>${regionalBlocs.map(l => l.name).join(', ')}</div>` : ''}
+        <div><b>Translations: </b> ${Object.values(translations).join(', ')}</div>
+      </div>
+      </div>
+      `;
+    });
+    header.appendChild(container);
+    createListeners();
+}
+
+const filterResult = (contries, searchBy) => {
+    const searchIn = ['name', 'capital'];
+    const result = [];
+    contries.forEach((country) => {
+        searchIn.forEach((field) => {
+            if (country[field].toLowerCase().includes(searchBy.toLowerCase())) {
+                result.push(country);
+            }
+        })
+    })
+    return result;
+}
+
+generateView();
